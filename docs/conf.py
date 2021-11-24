@@ -66,11 +66,6 @@ intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
     'numpy': ('https://numpy.org/doc/stable/', None),
     'matplotlib': ('https://matplotlib.org/stable', None),
-    'mayavi': ('http://docs.enthought.com/mayavi/mayavi', None),
-    'sklearn': ('https://scikit-learn.org/stable', None),
-    'sphinx': ('https://www.sphinx-doc.org/en/master', None),
-    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
-    'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None)
 }
 
 examples_dirs = ['../Examples']
@@ -84,7 +79,6 @@ sphinx_gallery_conf = {
     'reference_url': {
                      # 'mytoolbox': None,  # The module you locally document uses None
                      'numpy': 'https://docs.scipy.org/doc/numpy/',
-                     'scipy': 'https://docs.scipy.org/doc/scipy/reference/',
                      'matplotlib': 'https://matplotlib.org/stable'
                      },
     'matplotlib_animations': True,
