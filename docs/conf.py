@@ -10,6 +10,7 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
+import sphinx_gallery
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../'))
@@ -30,9 +31,13 @@ author = 'Cyril Gadal'
 extensions = [
     'sphinx.ext.autodoc',  # Core Sphinx library for auto html doc generation from docstrings
     'sphinx.ext.autosummary',  # Create neat summary tables for modules/classes/methods etc
-    'sphinx.ext.intersphinx',  # Link to other project's documentation (see mapping below)
-    'sphinx.ext.viewcode',  # Add a link to the Python source code for classes, functions etc.
-    'sphinx_autodoc_typehints',  # Automatically document param types (less noise in class signature)
+    # Link to other project's documentation (see mapping below)
+    'sphinx.ext.intersphinx',
+    # Add a link to the Python source code for classes, functions etc.
+    'sphinx.ext.viewcode',
+    # Automatically document param types (less noise in class signature)
+    'sphinx_autodoc_typehints',
+    # 'nbsphinx',  # Integrate Jupyter Notebooks and Sphinx
     'sphinx.ext.napoleon',
     'numpydoc',
     'sphinx.ext.doctest',
@@ -42,10 +47,13 @@ extensions = [
 ]
 
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
+autosummary_imported_members = True  # Also dosuments imports in __init__.py
 autoclass_content = "both"  # Add __init__ doc (ie. params) to class summaries
-html_show_sourcelink = False  # Remove 'view source code' from top of page (for html, not python)
-# autodoc_inherit_docstrings = True  # If no docstring, inherit from base class
-# set_type_checking_flag = True  # Enable 'expensive' imports for sphinx_autodoc_typehints
+# Remove 'view source code' from top of page (for html, not python)
+html_show_sourcelink = False
+autodoc_inherit_docstrings = True  # If no docstring, inherit from base class
+# Enable 'expensive' imports for sphinx_autodoc_typehints
+set_type_checking_flag = True
 nbsphinx_allow_errors = True  # Continue through Jupyter errors
 # autodoc_typehints = "description" # Sphinx-native method. Not as good as sphinx_autodoc_typehints
 add_module_names = False  # Remove namespaces from class/method signatures
@@ -60,7 +68,6 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # -- Options for Sphinx gallery ---------------------------------------------
-import sphinx_gallery
 
 intersphinx_mapping = {
     'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
@@ -74,17 +81,19 @@ gallery_dirs = ['examples']
 sphinx_gallery_conf = {
     'examples_dirs': examples_dirs,   # path to your example scripts
     'gallery_dirs': gallery_dirs,  # path to where to save gallery generated output
-    'backreferences_dir': 'gen_modules/backreferences',  # directory where function/class granular galleries are stored
-    'doc_module': ('mytoolbox'),  # Modules for which function/class level galleries are created.
+    # directory where function/class granular galleries are stored
+    'backreferences_dir': 'gen_modules/backreferences',
+    # Modules for which function/class level galleries are created.
+    'doc_module': ('mytoolbox'),
     'reference_url': {
-                     # 'mytoolbox': None,  # The module you locally document uses None
-                     'numpy': 'https://docs.scipy.org/doc/numpy/',
-                     'matplotlib': 'https://matplotlib.org/stable'
-                     },
+        'mytoolbox': None,  # The module you locally document uses None
+        'numpy': 'https://docs.scipy.org/doc/numpy/',
+        'matplotlib': 'https://matplotlib.org/stable'
+    },
     'matplotlib_animations': True,
     'plot_gallery': True,
-    'filename_pattern': '*.py',
-     }
+    'filename_pattern': 'example',
+}
 
 
 # -- Options for HTML output -------------------------------------------------

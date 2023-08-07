@@ -1,3 +1,8 @@
+""" 
+Module description
+
+"""
+
 import matplotlib.pyplot as plt
 
 
