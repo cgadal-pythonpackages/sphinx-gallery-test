@@ -1,0 +1,6 @@
+sphinx
+sphinx-gallery
+ghp-import
+
+numpy 
+matplotlib

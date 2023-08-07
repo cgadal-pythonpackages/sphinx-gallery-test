@@ -1,16 +1,16 @@
 """
 ============
-Example 2
+Example 1
 ============
 
-test
+Test
 
 """
 
 import numpy as np
-import sys
-from mytoolbox.submodule.module1 import my_scatter
+
+from mytoolbox.module1 import my_plot
 
 x, y = np.random.random((100,)), np.random.random((100,))
 
-my_scatter(x, y)
+my_plot(x, y)
