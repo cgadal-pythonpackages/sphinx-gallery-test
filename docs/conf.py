@@ -75,7 +75,7 @@ intersphinx_mapping = {
     'matplotlib': ('https://matplotlib.org/stable', None),
 }
 
-examples_dirs = ['../Examples']
+examples_dirs = ['../examples']
 gallery_dirs = ['examples']
 
 sphinx_gallery_conf = {
