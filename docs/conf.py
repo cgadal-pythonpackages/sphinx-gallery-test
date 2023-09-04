@@ -13,14 +13,15 @@
 import sphinx_gallery
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../'))
+
+sys.path.insert(0, os.path.abspath("../"))
 
 
 # -- Project information -----------------------------------------------------
 
-project = 'mytoolbox'
-copyright = '2021, Cyril Gadal'
-author = 'Cyril Gadal'
+project = "mytoolbox"
+copyright = "2021, Cyril Gadal"
+author = "Cyril Gadal"
 
 
 # -- General configuration ---------------------------------------------------
@@ -29,26 +30,26 @@ author = 'Cyril Gadal'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.autodoc',  # Core Sphinx library for auto html doc generation from docstrings
-    'sphinx.ext.autosummary',  # Create neat summary tables for modules/classes/methods etc
+    "sphinx.ext.autodoc",  # Core Sphinx library for auto html doc generation from docstrings
+    "sphinx.ext.autosummary",  # Create neat summary tables for modules/classes/methods etc
     # Link to other project's documentation (see mapping below)
-    'sphinx.ext.intersphinx',
+    "sphinx.ext.intersphinx",
     # Add a link to the Python source code for classes, functions etc.
-    'sphinx.ext.viewcode',
+    "sphinx.ext.viewcode",
     # Automatically document param types (less noise in class signature)
-    'sphinx_autodoc_typehints',
+    "sphinx_autodoc_typehints",
     # 'nbsphinx',  # Integrate Jupyter Notebooks and Sphinx
-    'sphinx.ext.napoleon',
-    'numpydoc',
-    'sphinx.ext.doctest',
-    'sphinx.ext.mathjax',
-    'sphinx_gallery.gen_gallery',
-    'sphinx.ext.coverage'
+    "sphinx.ext.napoleon",
+    "numpydoc",
+    "sphinx.ext.doctest",
+    "sphinx.ext.mathjax",
+    "sphinx_gallery.gen_gallery",
+    "sphinx.ext.coverage",
 ]
 
 autosummary_generate = True  # Turn on sphinx.ext.autosummary
-autosummary_imported_members = True  # Also dosuments imports in __init__.py
-autoclass_content = "both"  # Add __init__ doc (ie. params) to class summaries
+autosummary_imported_members = True  # Also documents imports in __init__.py
+# autoclass_content = "both"  # Add __init__ doc (ie. params) to class summaries
 # Remove 'view source code' from top of page (for html, not python)
 html_show_sourcelink = False
 autodoc_inherit_docstrings = True  # If no docstring, inherit from base class
@@ -60,50 +61,62 @@ add_module_names = False  # Remove namespaces from class/method signatures
 
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates']
+templates_path = ["_templates"]
+
+# The name of the Pygments (syntax highlighting) style to use.
+pygments_style = "sphinx"
+highlight_language = "python3"
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # -- Options for Sphinx gallery ---------------------------------------------
 
 intersphinx_mapping = {
-    'python': ('https://docs.python.org/{.major}'.format(sys.version_info), None),
-    'numpy': ('https://numpy.org/doc/stable/', None),
-    'matplotlib': ('https://matplotlib.org/stable', None),
+    "python": ("https://docs.python.org/{.major}".format(sys.version_info), None),
+    "numpy": ("https://numpy.org/doc/stable/", None),
+    "matplotlib": ("https://matplotlib.org/stable", None),
 }
 
-examples_dirs = ['../examples']
-gallery_dirs = ['examples']
+examples_dirs = ["../examples"]
+gallery_dirs = ["examples"]
 
 sphinx_gallery_conf = {
-    'examples_dirs': examples_dirs,   # path to your example scripts
-    'gallery_dirs': gallery_dirs,  # path to where to save gallery generated output
+    "examples_dirs": examples_dirs,  # path to your example scripts
+    "gallery_dirs": gallery_dirs,  # path to where to save gallery generated output
     # directory where function/class granular galleries are stored
-    'backreferences_dir': 'gen_modules/backreferences',
+    "backreferences_dir": "gen_modules/backreferences",
     # Modules for which function/class level galleries are created.
-    'doc_module': ('mytoolbox'),
-    'reference_url': {
-        'mytoolbox': None,  # The module you locally document uses None
-        'numpy': 'https://docs.scipy.org/doc/numpy/',
-        'matplotlib': 'https://matplotlib.org/stable'
+    "doc_module": ("mytoolbox"),
+    "reference_url": {
+        "mytoolbox": None,  # The module you locally document uses None
+        "numpy": "https://docs.scipy.org/doc/numpy/",
+        "matplotlib": "https://matplotlib.org/stable",
     },
-    'matplotlib_animations': True,
-    'plot_gallery': True,
-    'filename_pattern': 'example',
+    "matplotlib_animations": True,
+    "plot_gallery": True,
+    "filename_pattern": "example",
 }
 
 
 # -- Options for HTML output -------------------------------------------------
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-# The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes.
-#
+# Pydata theme
 html_theme = "pydata_sphinx_theme"
+html_theme_options = {
+    "show_prev_next": False,
+    "logo": {
+        "text": "pyudv",
+    },
+    "github_url": "https://github.com/cgadal-pythonpackages/sphinx-gallery-test",
+}
 
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = ["_static"]
+html_css_files = ["pydata-custom.css"]
+
+# If true, links to the reST sources are added to the pages.
+html_show_sourcelink = False
+html_copy_source = False

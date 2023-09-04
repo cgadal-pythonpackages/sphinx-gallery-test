@@ -5,10 +5,9 @@
    {% block modules %}
    {% if modules %}
    .. rubric:: {{ _('Modules') }}
-      
+
    .. autosummary::
       :toctree:
-      :template: custom-module-template.rst
       :recursive:
    {% for item in modules %}
       {{ item }}
@@ -34,7 +33,6 @@
 
    .. autosummary::
       :toctree:
-      :template: custom-function-template.rst
       :nosignatures:
    {% for item in functions %}
       {{ item }}
@@ -48,7 +46,6 @@
 
    .. autosummary::
       :toctree:
-      :template: custom-class-template.rst
       :nosignatures:
    {% for item in classes %}
       {{ item }}
