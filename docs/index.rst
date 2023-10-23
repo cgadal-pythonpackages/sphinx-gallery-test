@@ -11,7 +11,7 @@ Welcome to mytoolbox's documentation!
    :caption: Contents:
 
    Home page <self>
-   Examples <examples/index.rst>
+   Examples <_examples/index.rst>
    API reference <_autosummary/mytoolbox>
 
 

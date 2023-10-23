@@ -16,13 +16,11 @@ import sys
 
 sys.path.insert(0, os.path.abspath("../"))
 
-
 # -- Project information -----------------------------------------------------
 
 project = "mytoolbox"
 copyright = "2021, Cyril Gadal"
 author = "Cyril Gadal"
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -59,7 +57,6 @@ nbsphinx_allow_errors = True  # Continue through Jupyter errors
 # autodoc_typehints = "description" # Sphinx-native method. Not as good as sphinx_autodoc_typehints
 add_module_names = False  # Remove namespaces from class/method signatures
 
-
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
 
@@ -81,13 +78,13 @@ intersphinx_mapping = {
 }
 
 examples_dirs = ["../examples"]
-gallery_dirs = ["examples"]
+gallery_dirs = ["_examples"]
 
 sphinx_gallery_conf = {
     "examples_dirs": examples_dirs,  # path to your example scripts
     "gallery_dirs": gallery_dirs,  # path to where to save gallery generated output
     # directory where function/class granular galleries are stored
-    "backreferences_dir": "gen_modules/backreferences",
+    "backreferences_dir": "_gen_modules/backreferences",
     # Modules for which function/class level galleries are created.
     "doc_module": ("mytoolbox"),
     "reference_url": {
@@ -99,7 +96,6 @@ sphinx_gallery_conf = {
     "plot_gallery": True,
     "filename_pattern": "example",
 }
-
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
